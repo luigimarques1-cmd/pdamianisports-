@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 800" role="img" aria-label="Espaço reservado para pronta entrega">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101114"/><stop offset=".5" stop-color="#070707"/><stop offset="1" stop-color="#2a050c"/></linearGradient></defs>
+<rect width="1920" height="800" fill="url(#g)"/><path d="M700 860 1810 -60M1080 870 1980 80" stroke="#e01832" stroke-opacity=".24" stroke-width="42"/>
+<rect x="95" y="96" width="1730" height="608" rx="26" fill="none" stroke="#bf0e28" stroke-opacity=".38" stroke-width="3"/>
+<text x="960" y="330" text-anchor="middle" font-family="Arial,sans-serif" font-size="155" font-weight="900" fill="#fff">PRONTA <tspan fill="#ed162e">ENTREGA</tspan></text>
+<rect x="670" y="392" width="580" height="7" rx="3" fill="#ed162e"/>
+<text x="960" y="483" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" fill="#ddd">ADICIONE A URL DO SEU BANNER</text>
+<text x="960" y="546" text-anchor="middle" font-family="Arial,sans-serif" font-size="29" fill="#999">1920 × 800 PX • FORMATO 12:5</text>
+</svg>

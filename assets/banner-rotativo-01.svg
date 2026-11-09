@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" role="img" aria-label="Espaço reservado para o banner 1">
+<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b0b0d"/><stop offset=".62" stop-color="#15080b"/><stop offset="1" stop-color="#380809"/></linearGradient><linearGradient id="red" x1="0" x2="1"><stop stop-color="#ac081a"/><stop offset="1" stop-color="#f01a32"/></linearGradient></defs>
+<rect width="1080" height="1440" fill="url(#g1)"/><path d="M-80 1200 1050 200M-50 1370 1170 310" stroke="#eb102a" stroke-opacity=".22" stroke-width="28"/><path d="M0 1260H1080" stroke="#e0142c" stroke-opacity=".2" stroke-width="8"/>
+<rect x="110" y="410" width="860" height="615" rx="30" stroke="#e41a30" stroke-opacity=".44" stroke-width="3" fill="#0a0b0e" fill-opacity=".5"/>
+<text x="540" y="585" font-size="55" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" letter-spacing="12" font-weight="800">P DAMIANI SPORTS</text>
+<rect x="375" y="638" width="330" height="6" fill="url(#red)"/>
+<text x="540" y="755" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="100" fill="#fff">BANNER 01</text>
+<text x="540" y="832" text-anchor="middle" font-family="Arial,sans-serif" font-size="32" fill="#b9b9be">INSIRA A URL DA IMAGEM</text>
+<text x="540" y="890" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" fill="#888">1080 × 1440 PX • FORMATO 3:4</text>
+</svg>

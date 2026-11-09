@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="608" viewBox="0 0 1080 608">
+ <defs><linearGradient id="r" x2="0" y2="1"><stop stop-color="#fa343f"/><stop offset="1" stop-color="#940715"/></linearGradient><filter id="g"><feGaussianBlur stdDeviation="12"/></filter></defs>
+ <rect width="1080" height="608" fill="#030303"/>
+ <path d="M625 608 1040 0M824 608 1080 350" stroke="#fb2c3a" stroke-width="18" opacity=".55" filter="url(#g)"/>
+ <path d="M625 608 1040 0M824 608 1080 350" stroke="#ff4652" stroke-width="3"/>
+ <path d="M0 112h460M0 490h560" stroke="#bc1625" stroke-width="3"/>
+ <text x="60" y="240" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="81" fill="#fff">NOVA SEÇÃO</text>
+ <text x="58" y="355" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="120" fill="url(#r)">02</text>
+ <text x="62" y="430" font-family="Arial,Helvetica,sans-serif" font-weight="600" font-size="28" fill="#dedede">BANNER HORIZONTAL • SUBSTITUIR</text>
+ <path d="M740 198 850 157l110 41v91c0 89-62 153-110 172-48-19-110-83-110-172z" fill="#151515" stroke="#f52a39" stroke-width="8"/>
+ <path d="m850 213 20 45 49 4-37 32 12 49-44-25-44 25 12-49-37-32 49-4z" fill="#ef3645"/>
+</svg>

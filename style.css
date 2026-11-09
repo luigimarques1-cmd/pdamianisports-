@@ -1,0 +1,349 @@
+
+:root{
+  color-scheme:dark;
+  --bg:#000000;
+  --surface:#101010;
+  --surface-2:#161616;
+  --circle:#130707;
+  --text:#ffffff;
+  --muted:#b7b7b7;
+  --line:rgba(255,255,255,.12);
+  --accent:#ff0000;
+  --accent-strong:#ff2b2b;
+  --accent-soft:rgba(255,0,0,.18);
+  --header-height:94px;
+  --topbar-height:38px;
+  --circle-size:98px;
+  --card-width:124px;
+  --item-gap:16px;
+  --section-bottom:44px;
+  font-family:Inter,Helvetica,Arial,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + var(--topbar-height) + 18px)}
+body{margin:0;background:var(--bg);color:var(--text);min-width:320px;overflow-x:hidden}
+body.overlay-open{overflow:hidden}
+button,input{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--accent-strong);outline-offset:4px;border-radius:4px}
+.skip-link{position:fixed;top:-100px;left:12px;z-index:500;background:#fff;color:#000;padding:12px}
+.skip-link:focus{top:12px}
+
+.sticky-shell{position:sticky;top:0;z-index:140;background:#000}
+.announcement-bar{
+  position:relative;
+  height:var(--topbar-height);
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:#000;
+  border-bottom:1px solid rgba(255,0,0,.22);
+}
+.announcement-track{
+  display:flex;
+  align-items:center;
+  gap:42px;
+  white-space:nowrap;
+  min-width:max-content;
+  padding-inline:18px;
+  color:var(--accent-strong);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  animation:marquee 16s linear infinite;
+}
+.announcement-track span{position:relative}
+.announcement-track span::after{
+  content:"•";
+  margin-left:42px;
+  color:rgba(255,255,255,.35);
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.site-header{background:#000;min-height:var(--header-height);border-bottom:1px solid rgba(255,255,255,.05)}
+.header-inner{
+  position:relative;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:10px;
+  max-width:1280px;
+  min-height:var(--header-height);
+  padding:10px 14px;
+  margin:0 auto;
+}
+.header-side{display:flex;align-items:center}
+.header-side--left{justify-content:flex-start}
+.header-side--right{justify-content:flex-end;gap:10px}
+.icon-button{
+  display:inline-grid;
+  place-items:center;
+  width:56px;
+  height:56px;
+  border:1.5px solid rgba(255,0,0,.55);
+  border-radius:50%;
+  color:var(--accent-strong);
+  background:#130606;
+  padding:0;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 0 0 1px rgba(255,0,0,.05);
+  transition:background-color .18s ease,border-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease;
+}
+.icon-button svg{display:block;width:28px;height:28px}
+.icon-button:hover,.icon-button[aria-expanded="true"],.icon-link:hover{
+  color:#fff;
+  background:rgba(255,0,0,.18);
+  border-color:var(--accent-strong);
+  box-shadow:0 0 0 4px rgba(255,0,0,.08);
+}
+.icon-button:active{transform:scale(.96)}
+.icon-button:focus-visible{outline:3px solid rgba(255,255,255,.9);outline-offset:3px;border-radius:50%}
+.brand{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-width:0;
+  padding:4px 0;
+}
+.brand img{
+  display:block;
+  width:min(100%,168px);
+  max-height:72px;
+  object-fit:contain;
+}
+.featured-brand{width:100%;max-width:680px;margin:0 auto 24px;background:#000}
+.featured-brand img{display:block;width:100%;height:auto;aspect-ratio:3 / 4;object-fit:contain;background:#000}
+
+.whatsapp-floating{
+  position:fixed;
+  right:calc(18px + env(safe-area-inset-right, 0px));
+  bottom:calc(20px + env(safe-area-inset-bottom, 0px));
+  z-index:150;
+  display:grid;
+  place-items:center;
+  width:62px;
+  height:62px;
+  border:2px solid rgba(255,255,255,.96);
+  border-radius:50%;
+  background:#25d366;
+  color:#fff;
+  box-shadow:0 5px 18px rgba(0,0,0,.42);
+  transition:transform .18s ease,background-color .18s ease;
+}
+.whatsapp-floating svg{display:block;width:34px;height:34px;fill:currentColor}
+.whatsapp-floating:hover{background:#1db954;transform:translateY(-2px)}
+.whatsapp-floating:focus-visible{outline:3px solid var(--accent-strong);outline-offset:4px;border-radius:50%}
+main{width:100%;margin:0 auto}
+.liga-section{max-width:1080px;margin:0 auto;padding:0 0 var(--section-bottom);scroll-margin-top:calc(var(--header-height) + var(--topbar-height) + 14px)}
+/* Os banners externos podem conter um filete claro no rodapé.
+   Mantemos a imagem em sua proporção natural e cobrimos somente os
+   últimos pixels, sem redimensionar nem alterar a arte original. */
+.banner-container{
+  position:relative;
+  width:100%;
+  max-width:1080px;
+  margin-inline:auto;
+  background:#000;
+  overflow:hidden;
+  line-height:0;
+}
+.banner-container img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:auto;
+  object-fit:contain;
+  border:0;
+  border-radius:0;
+  background:#000;
+}
+.banner-container::after{
+  content:"";
+  position:absolute;
+  right:0;
+  bottom:-1px;
+  left:0;
+  height:5px;
+  background:#000;
+  pointer-events:none;
+}
+.carousel{margin-top:18px;position:relative}
+.carousel-viewport{overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none;touch-action:pan-x pan-y;cursor:grab;-webkit-overflow-scrolling:touch}
+.carousel-viewport::-webkit-scrollbar{display:none}
+.carousel-viewport.is-dragging{cursor:grabbing;user-select:none}
+.carousel-track{display:flex;width:max-content;min-width:100%}
+.carousel-set{display:flex;align-items:flex-start;gap:var(--item-gap);flex:0 0 auto;padding-right:var(--item-gap)}
+.club-card{display:flex;flex:0 0 var(--card-width);width:var(--card-width);min-width:0;flex-direction:column;align-items:center;gap:10px;text-align:center;outline-offset:3px;user-select:none}
+.club-card:hover .club-circle,.club-card:focus-visible .club-circle{background:#230909;transform:translateY(-1px)}
+.club-card.is-unavailable{cursor:default}
+.club-card.is-unavailable .club-circle{opacity:.8}
+.club-circle{
+  position:relative;
+  width:var(--circle-size);
+  height:var(--circle-size);
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, rgba(255,0,0,.24), rgba(255,0,0,.08) 45%, rgba(16,16,16,1) 100%);
+  border:1.8px solid rgba(255,0,0,.58);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 10px 20px rgba(0,0,0,.28);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  transition:background .18s ease,transform .18s ease,border-color .18s ease;
+}
+.club-circle img{display:block;width:85%;height:85%;object-fit:contain;pointer-events:none;-webkit-user-drag:none;visibility:hidden;position:relative;z-index:2}
+.club-fallback{display:flex;align-items:center;justify-content:center;position:absolute;inset:0;color:#f3d8d8;font-size:17px;letter-spacing:.04em;font-weight:700;z-index:1}
+.club-circle.has-image img{visibility:visible}.club-circle.has-image .club-fallback{display:none}.club-circle.has-fallback img{display:none}
+.club-name{width:100%;font-size:10.8px;line-height:1.35;letter-spacing:.03em;font-weight:700;text-align:center;text-transform:uppercase;overflow-wrap:break-word;hyphens:auto;min-height:27px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.carousel-controls{display:flex;justify-content:center;align-items:center;gap:24px;margin-top:19px}
+.carousel-arrow{
+  display:inline-grid;place-items:center;flex:0 0 auto;
+  width:56px;height:56px;padding:0;
+  color:var(--accent-strong);background:#140707;
+  border:1.8px solid rgba(255,0,0,.62);
+  border-radius:50%;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+  transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease,box-shadow .18s ease;
+}
+.carousel-arrow svg{display:block;width:30px;height:30px}
+.carousel-arrow:hover{color:#fff;background:rgba(255,0,0,.18);border-color:var(--accent-strong);transform:translateY(-1px);box-shadow:0 0 0 4px rgba(255,0,0,.08)}
+.carousel-arrow:active{transform:scale(.95)}
+.carousel-arrow:focus-visible{outline:3px solid rgba(255,255,255,.9);outline-offset:4px;border-radius:50%}
+.site-footer{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:21px 18px 26px;color:#999;font-size:10px;letter-spacing:.025em}
+.site-footer #footer-name{font-size:11px;font-weight:700;color:#d5d5d5}
+.overlay{position:fixed;inset:0;z-index:200;isolation:isolate}
+.overlay-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.79)}
+.navigation-panel{position:absolute;inset:0 auto 0 0;width:min(88vw,390px);display:flex;flex-direction:column;background:#0b0b0b;border-right:1px solid rgba(255,0,0,.2);box-shadow:0 4px 40px #000;outline:none}
+.panel-header{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;min-height:72px;padding:12px 18px;border-bottom:1px solid var(--line)}
+.panel-title{font-size:13px;font-weight:800;letter-spacing:.11em;color:#fff}
+.navigation-content{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:16px 18px 40px;scrollbar-color:#343434 #101010;scrollbar-width:thin}
+.nav-top-link,.nav-contact-link{display:block;padding:13px 8px;color:#fff;font-size:12px;font-weight:700;letter-spacing:.05em}
+.nav-top-link:hover,.nav-contact-link:hover{color:var(--accent-strong)}
+.nav-heading{display:block;padding:18px 8px 10px;font-size:11px;letter-spacing:.075em;color:var(--muted)}
+.nav-league{border-bottom:1px solid #252525}
+.nav-league>summary{position:relative;list-style:none;padding:16px 29px 16px 8px;font-size:11px;font-weight:700;letter-spacing:.035em;cursor:pointer;line-height:1.5}
+.nav-league>summary::-webkit-details-marker{display:none}
+.nav-league>summary::after{position:absolute;right:9px;top:50%;transform:translateY(-50%) rotate(45deg);content:"";border-right:1px solid var(--accent-strong);border-bottom:1px solid var(--accent-strong);width:7px;height:7px;transition:transform .2s ease}
+.nav-league[open]>summary::after{transform:translateY(-30%) rotate(225deg)}
+.nav-items{display:flex;flex-direction:column;padding:0 0 10px 8px}
+.nav-items a,.nav-items span{display:block;padding:10px 12px;color:#bcbcbc;font-size:11px;text-transform:uppercase;line-height:1.4}
+.nav-items a:hover{color:#fff;background:#161616}
+.nav-items .no-link{color:#6c6c6c}
+.overlay--search{display:flex;justify-content:center;align-items:flex-start;padding-top:calc(var(--header-height) + var(--topbar-height) + 20px)}
+.search-panel{position:relative;width:min(calc(100vw - 28px),730px);max-height:calc(100dvh - var(--header-height) - var(--topbar-height) - 44px);overflow:hidden;display:flex;flex-direction:column;background:#0b0b0b;border:1px solid var(--line);box-shadow:0 10px 60px #000;outline:none}
+.search-field{display:flex;align-items:center;gap:11px;margin:19px 18px 12px;border-bottom:1px solid rgba(255,0,0,.52);padding:10px 2px;color:var(--accent-strong)}
+.search-field input{width:100%;height:40px;border:0;outline:0;color:#fff;background:transparent;font-size:14px;min-width:0;letter-spacing:.01em}
+.search-field:focus-within{border-bottom-color:#fff}
+.search-field input::-webkit-search-cancel-button{cursor:pointer}
+.search-results{overflow:auto;min-height:80px;padding:4px 18px 19px;overscroll-behavior:contain}
+.search-row{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;padding:13px 8px;border-bottom:1px solid #252525;text-align:left;font-size:12px;letter-spacing:.035em;font-weight:700;text-transform:uppercase;color:#fff;background:transparent;border-top:0;border-left:0;border-right:0;cursor:pointer}
+.search-row:hover,.search-row:focus-visible{background:#171717}
+.search-row small{flex:0 0 auto;font-size:10px;font-weight:400;letter-spacing:.02em;color:#999;text-align:right}
+.search-row.is-unavailable{color:#777;cursor:default}
+.search-message{font-size:12px;color:#a3a3a3;padding:22px 8px}
+.noscript-message{color:#ddd;text-align:center;padding:18px}
+
+@media(min-width:620px){
+  :root{--header-height:108px;--topbar-height:42px;--circle-size:122px;--card-width:154px;--item-gap:21px;--section-bottom:48px}
+  .header-inner{padding-inline:30px}
+  .icon-button{width:60px;height:60px}
+  .icon-button svg{width:30px;height:30px}
+  .brand img{width:min(100%,220px);max-height:82px}
+  .featured-brand{margin-bottom:24px}
+  .carousel{margin-top:24px}
+  .club-card{gap:10px}
+  .club-name{font-size:11px;min-height:30px}
+  .carousel-controls{margin-top:19px;gap:30px}
+  .carousel-arrow{width:60px;height:60px}
+  .carousel-arrow svg{width:32px;height:32px}
+  .announcement-track{font-size:13px}
+}
+@media(min-width:1000px){
+  :root{--circle-size:140px;--card-width:172px;--item-gap:24px;--section-bottom:51px}
+  .brand img{width:min(100%,260px);max-height:90px}
+  .featured-brand{margin-bottom:30px}
+  .carousel{margin-top:26px}
+  .club-name{font-size:11px}
+}
+@media(max-width:480px){
+  .header-inner{grid-template-columns:auto 1fr auto;gap:8px;padding-inline:10px}
+  .header-side--right{gap:7px}
+  .icon-button{width:49px;height:49px}
+  .icon-button svg{width:24px;height:24px}
+  .brand img{width:min(100%,132px);max-height:62px}
+  .announcement-track{gap:28px;font-size:11px;padding-inline:14px}
+  .announcement-track span::after{margin-left:28px}
+}
+@media(max-width:619px){
+  .whatsapp-floating{width:56px;height:56px;right:calc(16px + env(safe-area-inset-right, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px))}
+  .whatsapp-floating svg{width:31px;height:31px}
+}
+@media(hover:none){.club-card:hover .club-circle{background:radial-gradient(circle at 35% 30%, rgba(255,0,0,.24), rgba(255,0,0,.08) 45%, rgba(16,16,16,1) 100%)}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .announcement-track{animation:none}
+}
+
+/* P DAMIANI SPORTS — coleções principais e pronta entrega */
+.collection-section{scroll-margin-top:calc(var(--header-height) + var(--topbar-height) + 14px)}
+.section-with-heading{padding-top:24px;padding-bottom:var(--section-bottom)}
+.collection-heading{font-size:clamp(17px, 3vw, 25px);font-weight:850;letter-spacing:.085em;text-align:center;margin:0 auto 26px;padding:0 18px;color:#fff;text-transform:uppercase}
+.collection-heading::after{content:"";display:block;width:42px;height:3px;border-radius:2px;background:var(--accent-strong);margin:12px auto 0}
+.collection-circle{background:#111;border:1.8px solid rgba(255,0,0,.58)}
+.collection-circle img{width:100%;height:100%;object-fit:cover}
+.collection-card .club-name{font-size:11px;letter-spacing:.055em}
+.collection-card.is-unavailable{cursor:default}
+.collection-card.is-unavailable .collection-circle{opacity:1}
+.pronta-section{margin:0 auto;padding:8px 0 var(--section-bottom);scroll-margin-top:calc(var(--header-height) + var(--topbar-height) + 14px)}
+.pronta-banner{display:block;width:calc(100% - 20px);max-width:1920px;margin:auto;overflow:hidden;line-height:0;background:#000;border-radius:12px}
+.pronta-banner img{display:block;width:100%;height:auto;aspect-ratio:12/5;object-fit:contain;border:0}
+.pronta-banner:focus-visible{outline:3px solid var(--accent-strong);outline-offset:-4px}
+.collection-section .carousel{margin-top:22px}
+@media(max-width:619px){
+ .section-with-heading{padding-top:15px}
+ .collection-heading{margin-bottom:20px}
+ .collection-card .club-name{font-size:10px}
+}
+
+/* Logo temporária enquanto a URL personalizada não é fornecida. */
+.brand-placeholder{display:inline-block;font-size:clamp(18px,2.6vw,28px);letter-spacing:.075em;font-weight:900;color:#fff;text-align:center;}
+.brand-placeholder::first-letter{color:var(--accent-strong)}
+
+/* P DAMIANI SPORTS — Instagram e ajuste responsivo dos ícones */
+.icon-button--instagram{width:50px;height:50px}
+.icon-button--instagram svg{width:25px;height:25px}
+.footer-instagram{display:inline-block;color:var(--accent-strong);font-size:12px;font-weight:700;letter-spacing:.04em;margin-top:6px}
+.footer-instagram:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:480px){
+  .header-side--right{gap:5px}
+  .icon-button--instagram{width:43px;height:43px}
+  .icon-button--instagram svg{width:23px;height:23px}
+  .header-inner{gap:5px;padding-inline:8px}
+}
+@media(max-width:359px){
+  .icon-button--instagram{width:38px;height:38px}
+  .icon-button{width:43px;height:43px}
+  .header-side--right{gap:4px}
+}
+
+/* P DAMIANI SPORTS — carrossel principal de 3 banners (1080 × 1440) */
+.hero-slider{position:relative;width:100%;max-width:680px;margin:0 auto 24px;background:#050505;overflow:hidden;touch-action:pan-y}
+.hero-slides{position:relative;aspect-ratio:3/4;width:100%;overflow:hidden}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity .55s ease;pointer-events:none}
+.hero-slide.is-active{opacity:1;z-index:1;pointer-events:auto}
+.hero-slide img{width:100%;height:100%;display:block;object-fit:contain;background:#060606}
+.hero-nav{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(0,0,0,.48);color:#fff;backdrop-filter:blur(6px)}
+.hero-nav:hover{background:rgba(230,0,24,.85)}
+.hero-nav svg{width:25px;height:25px}
+.hero-nav--prev{left:12px}.hero-nav--next{right:12px}
+.hero-dots{position:absolute;z-index:5;bottom:15px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:8px}
+.hero-dot{width:9px;height:9px;border:0;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 1px 3px rgba(0,0,0,.5);padding:0;transition:width .2s ease,background .2s ease}
+.hero-dot.is-active{width:25px;border-radius:10px;background:#ed102b}
+.pronta-section{padding:6px 0 23px}
+@media(min-width:620px){.hero-slider{margin-bottom:25px}}
+@media(max-width:619px){.hero-nav{width:36px;height:36px}.hero-nav--prev{left:9px}.hero-nav--next{right:9px}.hero-nav svg{width:22px;height:22px}}
+@media(prefers-reduced-motion:reduce){.hero-slide{transition:none}}
